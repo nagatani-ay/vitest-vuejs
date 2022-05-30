@@ -1,5 +1,6 @@
 import { ref } from 'vue';
 import { Todo } from '../../type';
+import App from '../../App.vue';
 
 export function useTodos() {
   const todos = ref<Todo[]>([]);

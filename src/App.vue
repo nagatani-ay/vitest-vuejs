@@ -9,21 +9,14 @@ import { Todo } from './type';
 export default defineComponent({
   components: { TodoMenu },
   setup() {
-    const { getTodos, addTodo } = useTodos();
-    const todolist = ref<Todo[]>([]);
+    const todolist = ref<Todo[]>(['']);
+    
 
     function onCreate(data) {
       addTodo(data);
       todolist.value = getTodos();
     }
 
-    watch(
-      () => getTodos(),
-      (list, prevList) => {
-        todolist.value = getTodos();
-        console.log('watch');
-      }
-    );
     return { todolist, onCreate };
   },
 });
