@@ -1,6 +1,6 @@
 import { Todo } from '../../type';
 
-export function useMenus() {
+export function setTodo() {
   function newTodo(newText: string, newDeadline: string) {
     const todo: Todo = {
       code: generateID(),

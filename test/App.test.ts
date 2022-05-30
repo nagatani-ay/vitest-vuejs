@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import App from '../src/App.vue';
 import { test, expect } from 'vitest';
 import { useTodos } from '../src/components/Function/useTodos';
-import { splitDeadLine } from '../src/components/Function/useMenus';
+import { splitDeadLine } from '../src/components/Function/useData';
 it('useTodos', () => {
   const { todos, addTodo, removeTodo, editTodo } = useTodos();
   addTodo({
