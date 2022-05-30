@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
-  props: [],
+  props: ['modelValue'],
   emits: ['update:modelValue'],
   expose: ['modelValue'],
   setup() {
@@ -14,7 +14,6 @@ export default defineComponent({
 <template>
   <input
     type="date"
-    :value="date"
     @change="$emit('update:modelValue', $event.target.value)"
   />
   {{ date }}

@@ -42,6 +42,6 @@ test('calendarInput', async () => {
     },
   });
 
-  const input = wrapper.get('input');
-  await wrapper.trigger('change');
+  wrapper.vm.$emit('update:modelValue');
+  expect(wrapper.emitted()).toBeTruthy();
 });
