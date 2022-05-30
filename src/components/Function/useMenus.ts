@@ -7,7 +7,7 @@ export function useMenus() {
       text: newText,
       status: false,
       time: getTime(),
-      deadline: newDeadline,
+      deadline: splitDeadLine(newDeadline),
     };
     return {};
   }
@@ -17,12 +17,18 @@ export function useMenus() {
   };
 }
 
-function generateID() {
+export function splitDeadLine(deadline: string) {
+  const [year, month, day] = deadline.split('-').map(Number);
+
+  return { year, month, day };
+}
+
+export function generateID() {
   const code = Math.random().toString(32).substring(2);
   return code;
 }
 
-function getTime() {
+export function getTime() {
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth() + 1;

@@ -3,5 +3,5 @@ export type Todo = {
   text: string;
   status: boolean;
   time: string;
-  deadline: string;
+  deadline: { year: number; month: number; day: number };
 };

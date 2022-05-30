@@ -5,8 +5,7 @@ export default defineComponent({
   emits: ['update:modelValue'],
   expose: ['modelValue'],
   setup() {
-    const date = ref<string>('');
-    return { date };
+    return {};
   },
 });
 </script>
@@ -14,9 +13,9 @@ export default defineComponent({
 <template>
   <input
     type="date"
-    @change="$emit('update:modelValue', $event.target.value)"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
   />
-  {{ date }}
 </template>
 
 <style scoped></style>

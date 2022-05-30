@@ -6,7 +6,8 @@ import { defineComponent, ref } from 'vue';
 export default defineComponent({
   components: { CustomButton, CustomInput, CalendarInput },
   setup() {
-    const tempText = ref('');
+    const text = ref('');
+    const deadline = ref('');
     return {};
   },
 });

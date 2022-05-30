@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import App from '../src/App.vue';
 import { test, expect } from 'vitest';
 import { useTodos } from '../src/components/Function/useTodos';
-import { Todo } from '../src/type';
+import { splitDeadLine } from '../src/components/Function/useMenus';
 it('useTodos', () => {
   const { todos, addTodo, removeTodo, editTodo } = useTodos();
   addTodo({
@@ -10,7 +10,7 @@ it('useTodos', () => {
     text: 'test1',
     status: false,
     time: 'time',
-    deadline: 'deadline',
+    deadline: splitDeadLine('2022-05-22'),
   });
   expect(todos.value).toEqual([
     {
@@ -18,7 +18,7 @@ it('useTodos', () => {
       text: 'test1',
       status: false,
       time: 'time',
-      deadline: 'deadline',
+      deadline: { year: 2022, month: 5, day: 22 },
     },
   ]);
   addTodo({
@@ -26,7 +26,7 @@ it('useTodos', () => {
     text: 'test2',
     status: false,
     time: 'time',
-    deadline: 'deadline',
+    deadline: splitDeadLine('2022-05-23'),
   });
   expect(todos.value).toEqual([
     {
@@ -34,14 +34,14 @@ it('useTodos', () => {
       text: 'test1',
       status: false,
       time: 'time',
-      deadline: 'deadline',
+      deadline: { year: 2022, month: 5, day: 22 },
     },
     {
       code: 'id2',
       text: 'test2',
       status: false,
       time: 'time',
-      deadline: 'deadline',
+      deadline: { year: 2022, month: 5, day: 23 },
     },
   ]);
   removeTodo('id');
@@ -51,7 +51,7 @@ it('useTodos', () => {
       text: 'test2',
       status: false,
       time: 'time',
-      deadline: 'deadline',
+      deadline: { year: 2022, month: 5, day: 23 },
     },
   ]);
   editTodo(
@@ -60,7 +60,7 @@ it('useTodos', () => {
       text: 'test3',
       status: false,
       time: 'time',
-      deadline: 'deadline',
+      deadline: splitDeadLine('2022-05-24'),
     },
     'id2'
   );
@@ -71,7 +71,7 @@ it('useTodos', () => {
       text: 'test3',
       status: false,
       time: 'time',
-      deadline: 'deadline',
+      deadline: { year: 2022, month: 5, day: 24 },
     },
   ]);
 });
