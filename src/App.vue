@@ -1,14 +1,14 @@
 <script lang="ts">
-import CustomButton from './components/Control/Button.vue';
-import CustomInput from './components/Control/TextInput.vue';
+import TodoMenu from './components/TodoList/TodoMenu.vue';
+
 import { defineComponent, ref } from 'vue';
 import { useTodos } from '../src/components/Function/useTodos';
+import { Todo } from './type';
 
 export default defineComponent({
-  components: { CustomButton, CustomInput },
+  components: { TodoMenu },
   setup() {
-    const { todos, setData, addTodo, setTarget, removeTodo } = useTodos();
-    const todolist = ref(1);
+    const todolist = ref<Todo[]>([]);
 
     return { todolist };
   },
@@ -16,8 +16,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <custom-button ButtonText="Menu"></custom-button>
-  <custom-input></custom-input>
+  <todo-menu></todo-menu>
 </template>
 
 <style></style>

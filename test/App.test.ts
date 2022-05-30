@@ -4,7 +4,7 @@ import { test, expect } from 'vitest';
 import { useTodos } from '../src/components/Function/useTodos';
 import { Todo } from '../src/type';
 it('useTodos', () => {
-  const { todos, addTodo, removeTodo } = useTodos();
+  const { todos, addTodo, removeTodo, editTodo } = useTodos();
   addTodo({
     code: 'id',
     text: 'test1',
@@ -49,6 +49,26 @@ it('useTodos', () => {
     {
       code: 'id2',
       text: 'test2',
+      status: false,
+      time: 'time',
+      deadline: 'deadline',
+    },
+  ]);
+  editTodo(
+    {
+      code: 'id2',
+      text: 'test3',
+      status: false,
+      time: 'time',
+      deadline: 'deadline',
+    },
+    'id2'
+  );
+
+  expect(todos.value).toEqual([
+    {
+      code: 'id2',
+      text: 'test3',
       status: false,
       time: 'time',
       deadline: 'deadline',

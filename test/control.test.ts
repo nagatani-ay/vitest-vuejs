@@ -1,6 +1,8 @@
 import { mount } from '@vue/test-utils';
 import Button from '../src/components/Control/Button.vue';
 import TextInput from '../src/components/Control/TextInput.vue';
+import CalendarInput from '../src/components/Control/CalendarInput.vue';
+
 import { test, expect } from 'vitest';
 
 // Buttonのテスト
@@ -31,4 +33,15 @@ test('textInput', async () => {
 
   wrapper.vm.$emit('update:modelValue');
   expect(wrapper.emitted()).toBeTruthy();
+});
+
+test('calendarInput', async () => {
+  const wrapper = mount(CalendarInput, {
+    props: {
+      modelValue: '',
+    },
+  });
+
+  const input = wrapper.get('input');
+  await wrapper.trigger('change');
 });
