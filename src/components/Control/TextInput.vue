@@ -16,7 +16,6 @@ export default defineComponent({
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
   />
-  {{ modelValue }}
 </template>
 
 <style scoped></style>

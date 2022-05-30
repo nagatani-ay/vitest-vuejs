@@ -15,11 +15,4 @@ export default defineComponent({
   </button>
 </template>
 
-<style scoped>
-button {
-  margin: 0;
-  padding: 5px;
-  background-color: transparent;
-  border: solid 1px lightgrey;
-}
-</style>
+<style scoped></style>

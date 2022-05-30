@@ -4,6 +4,9 @@ import { Todo } from '../../type';
 export function useTodos() {
   const todos = ref<Todo[]>([]);
   // 追加処理
+  function getTodos(){
+    return todos
+  }
   function addTodo(data: Todo) {
     todos.value.push(data);
   }
@@ -37,12 +40,10 @@ export function useTodos() {
     addTodo,
     removeTodo,
     editTodo,
+    createTodo,
+    getTodos
   };
 }
-
-
-
-
 
 export function splitDeadLine(deadline: string) {
   const [year, month, day] = deadline.split('-').map(Number);
