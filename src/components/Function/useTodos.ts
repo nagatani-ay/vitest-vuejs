@@ -4,11 +4,13 @@ import { Todo } from '../../type';
 export function useTodos() {
   const todos = ref<Todo[]>([]);
   // 追加処理
-  function getTodos(){
-    return todos
+  function getTodos() {
+    console.log(todos.value);
+    return todos;
   }
   function addTodo(data: Todo) {
     todos.value.push(data);
+    console.log(todos);
   }
 
   function createTodo(newText: string, newDeadline: string) {
@@ -41,7 +43,7 @@ export function useTodos() {
     removeTodo,
     editTodo,
     createTodo,
-    getTodos
+    getTodos,
   };
 }
 

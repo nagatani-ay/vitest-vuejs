@@ -7,14 +7,13 @@ import { useTodos } from '../Function/useTodos';
 
 export default defineComponent({
   components: { CustomButton, CustomInput, CalendarInput },
-  setup() {
+  setup(props, context) {
     const { createTodo, addTodo } = useTodos();
     const text = ref('');
     const deadline = ref('');
 
     const onCreate = () => {
-      console.logt('create');
-      addTodo(createTodo(text, deadline));
+      context.emit('onCreate', createTodo(text.value, deadline.value));
     };
     return { text, deadline, onCreate };
   },
