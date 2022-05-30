@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
 import App from '../src/App.vue';
 import { test, expect } from 'vitest';
-import { useTodos } from '../src/components/Function/useTodos';
-import { splitDeadLine } from '../src/components/Function/useData';
+import { useTodos, splitDeadLine } from '../src/components/Function/useTodos';
+
 it('useTodos', () => {
   const { todos, addTodo, removeTodo, editTodo } = useTodos();
   addTodo({
