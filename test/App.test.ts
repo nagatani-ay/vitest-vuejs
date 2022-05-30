@@ -2,17 +2,16 @@ import { mount } from '@vue/test-utils';
 import App from '../src/App.vue';
 import { test, expect } from 'vitest';
 import { useTodos } from '../src/components/Function/useTodos';
-
-it('add todos', () => {
-  const { todos, setData, addTodo, setTarget, removeTodo } = useTodos();
-  setData.value = {
+import { Todo } from '../src/type';
+it('useTodos', () => {
+  const { todos, addTodo, removeTodo } = useTodos();
+  addTodo({
     code: 'id',
     text: 'test1',
     status: false,
     time: 'time',
     deadline: 'deadline',
-  };
-  addTodo();
+  });
   expect(todos.value).toEqual([
     {
       code: 'id',
@@ -22,14 +21,13 @@ it('add todos', () => {
       deadline: 'deadline',
     },
   ]);
-  setData.value = {
+  addTodo({
     code: 'id2',
     text: 'test2',
     status: false,
     time: 'time',
     deadline: 'deadline',
-  };
-  addTodo();
+  });
   expect(todos.value).toEqual([
     {
       code: 'id',
@@ -46,9 +44,7 @@ it('add todos', () => {
       deadline: 'deadline',
     },
   ]);
-  setTarget.value = 'id';
-  removeTodo();
-
+  removeTodo('id');
   expect(todos.value).toEqual([
     {
       code: 'id2',
