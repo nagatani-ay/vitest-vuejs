@@ -14,7 +14,7 @@ export default defineComponent({
     const todolist = ref<Todo[]>([
       {
         code: 'string',
-        text: 'test1',
+        text: 'default',
         status: false,
         time: 'string',
         deadline: { year: 2022, month: 5, day: 1 },
