@@ -3,11 +3,18 @@ import { Todo } from '../../type';
 import App from '../../App.vue';
 
 export function useTodos() {
-  const todos = ref<Todo[]>([]);
+  const todos = ref<Todo[]>([
+    {
+      code: 'string',
+      text: 'test1',
+      status: false,
+      time: 'string',
+      deadline: { year: 2022, month: 5, day: 1 },
+    },
+  ]);
   // 追加処理
   function getTodos() {
-    console.log(todos.value);
-    return todos;
+    return todos.value;
   }
   function addTodo(data: Todo) {
     todos.value.push(data);

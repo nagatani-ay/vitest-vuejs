@@ -9,8 +9,17 @@ import { Todo } from './type';
 export default defineComponent({
   components: { TodoMenu },
   setup() {
-    const todolist = ref<Todo[]>(['']);
-    
+    const { getTodos, addTodo } = useTodos();
+    console.log(getTodos());
+    const todolist = ref<Todo[]>([
+      {
+        code: 'string',
+        text: 'test1',
+        status: false,
+        time: 'string',
+        deadline: { year: 2022, month: 5, day: 1 },
+      },
+    ]);
 
     function onCreate(data) {
       addTodo(data);
